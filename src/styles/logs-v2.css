@@ -1,0 +1,178 @@
+/* Logs Center v2 — mock rows with aligned columns + equal card heights */
+
+.logs2-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logs2-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.logs2-mid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.logs2-mid > .ant-card {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logs2-mid > .ant-card > .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.logs2-stream-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.logs2-svc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logs2-svc-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 2px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.logs2-svc-list li:last-child {
+  border-bottom: 0;
+}
+
+.logs2-svc-list span {
+  color: #94a3b8;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.logs2-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logs2-events li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.logs2-event-icon {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.logs2-events .is-error .logs2-event-icon {
+  color: #dc2626;
+}
+.logs2-events .is-ok .logs2-event-icon {
+  color: #16a34a;
+}
+.logs2-events .is-warn .logs2-event-icon {
+  color: #d97706;
+}
+.logs2-events .is-info .logs2-event-icon {
+  color: #2563eb;
+}
+
+.logs2-events strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+.logs2-events em {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* 1.5 + 1 = 2.5 : 1 — aligns with mid row gutters */
+.logs2-bottom {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.logs2-bottom > .ant-card {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logs2-bottom > .ant-card > .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.logs2-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.logs2-row-active td {
+  background: #eff6ff !important;
+}
+
+.logs2-json {
+  margin: 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #0b1220;
+  color: #e2e8f0;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow: auto;
+  flex: 1;
+  min-height: 280px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.logs2-empty {
+  padding: 48px 12px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}

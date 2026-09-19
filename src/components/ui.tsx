@@ -76,15 +76,17 @@ export function Panel({
   extra,
   children,
   style,
+  className,
 }: {
   title: ReactNode
   extra?: ReactNode
   children: ReactNode
   style?: React.CSSProperties
+  className?: string
 }) {
   return (
     <Card
-      className="panel-card fade-up"
+      className={['panel-card', 'fade-up', className].filter(Boolean).join(' ')}
       title={<span style={{ fontWeight: 650 }}>{title}</span>}
       extra={extra}
       styles={{ body: { paddingTop: 12 } }}

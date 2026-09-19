@@ -5,6 +5,7 @@ import {
   AuditOutlined,
   BuildOutlined,
   CloudServerOutlined,
+  ContactsOutlined,
   DashboardOutlined,
   DeploymentUnitOutlined,
   FileSearchOutlined,
@@ -19,15 +20,19 @@ type NavFn = (path: string) => void
 
 const routes = [
   { title: '项目总览', path: '/', icon: <DashboardOutlined />, keywords: 'overview 总览' },
+  { title: '项目总览2', path: '/overview-v2', icon: <DashboardOutlined />, keywords: 'overview 总览2 可视化流水线' },
   { title: '流水线', path: '/pipelines', icon: <ApartmentOutlined />, keywords: 'pipeline ci' },
   { title: 'AI Agent', path: '/agent', icon: <RobotOutlined />, keywords: 'agent ai 编程' },
   { title: '构建中心', path: '/builds', icon: <BuildOutlined />, keywords: 'build 构建' },
   { title: '部署中心', path: '/deploys', icon: <DeploymentUnitOutlined />, keywords: 'deploy 部署 回滚' },
   { title: '环境管理', path: '/environments', icon: <CloudServerOutlined />, keywords: 'env 环境' },
+  { title: '环境管理2', path: '/environments-v2', icon: <CloudServerOutlined />, keywords: 'env 环境管理2 资源' },
   { title: '版本管理', path: '/versions', icon: <TagsOutlined />, keywords: 'version release' },
   { title: '日志中心', path: '/logs', icon: <FileSearchOutlined />, keywords: 'log 日志' },
+  { title: '日志中心2', path: '/logs-v2', icon: <FileSearchOutlined />, keywords: 'log 日志中心2 实时流' },
   { title: '审批中心', path: '/approvals', icon: <AuditOutlined />, keywords: 'approval 审批' },
   { title: '告警中心', path: '/alerts', icon: <AlertOutlined />, keywords: 'alert 告警' },
+  { title: '客户中心', path: '/customers', icon: <ContactsOutlined />, keywords: 'customer 客户 回款 验收' },
   { title: '系统设置', path: '/settings', icon: <SettingOutlined />, keywords: 'settings 设置' },
 ]
 

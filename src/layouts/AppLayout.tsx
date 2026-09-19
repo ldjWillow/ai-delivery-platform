@@ -5,6 +5,7 @@ import {
   BellOutlined,
   BuildOutlined,
   CloudServerOutlined,
+  ContactsOutlined,
   DashboardOutlined,
   DeploymentUnitOutlined,
   FileSearchOutlined,
@@ -34,6 +35,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { currentUser, pageMeta, projects } from '../mock/data'
 import { CommandPalette } from '../components/CommandPalette'
+import { useAuth } from '../auth/AuthContext'
 
 const { Sider, Header, Content } = Layout
 
@@ -56,7 +58,11 @@ const notifications = [
 export default function AppLayout() {
   const nav = useNavigate()
   const loc = useLocation()
+  const { user, logout } = useAuth()
   const meta = pageMeta[loc.pathname] ?? pageMeta['/']
+  const displayName = user?.name ?? currentUser.name
+  const displayRole = user?.role ?? currentUser.role
+  const avatarText = displayName.slice(0, 1)
   const [collapsed, setCollapsed] = useState(false)
   const [project, setProject] = useState('mall')
   const [cmdOpen, setCmdOpen] = useState(false)
@@ -64,14 +70,19 @@ export default function AppLayout() {
 
   const selected = useMemo(() => {
     if (loc.pathname.startsWith('/settings')) return ['/settings']
+    if (loc.pathname.startsWith('/customers')) return ['/customers']
     return [loc.pathname === '' ? '/' : loc.pathname]
   }, [loc.pathname])
 
-  const openKeysDefault = ['grp-delivery', 'grp-assets', 'grp-runtime']
+  const openKeysDefault = ['grp-delivery', 'grp-assets', 'grp-runtime', 'grp-biz']
 
   const menuItems: MenuItem[] = useMemo(
     () => [
-      group('态势', [item('/', <DashboardOutlined />, '项目总览')]),
+      group('态势', [
+        item('/', <DashboardOutlined />, '项目总览'),
+        item('/overview-v2', <DashboardOutlined />, '项目总览2'),
+      ]),
+      group('客户', [item('/customers', <ContactsOutlined />, '客户中心')]),
       group('交付', [
         item('/pipelines', <ApartmentOutlined />, '流水线'),
         item('/agent', <RobotOutlined />, 'AI Agent'),
@@ -80,10 +91,12 @@ export default function AppLayout() {
       ]),
       group('资产', [
         item('/environments', <CloudServerOutlined />, '环境管理'),
+        item('/environments-v2', <CloudServerOutlined />, '环境管理2'),
         item('/versions', <TagsOutlined />, '版本管理'),
       ]),
       group('运行', [
         item('/logs', <FileSearchOutlined />, '日志中心'),
+        item('/logs-v2', <FileSearchOutlined />, '日志中心2'),
         item(
           '/approvals',
           <AuditOutlined />,
@@ -265,17 +278,25 @@ export default function AppLayout() {
                   { key: 'profile', label: '个人资料', onClick: () => message.info('演示：个人资料') },
                   { key: 'settings', label: '系统设置', onClick: () => nav('/settings') },
                   { type: 'divider' },
-                  { key: 'logout', label: '退出登录', onClick: () => message.success('已退出（演示）') },
+                  {
+                    key: 'logout',
+                    label: '退出登录',
+                    onClick: () => {
+                      logout()
+                      message.success('已退出')
+                      nav('/login', { replace: true })
+                    },
+                  },
                 ],
               }}
             >
               <button type="button" className="shell-user-chip">
                 <Avatar size={28} style={{ background: 'var(--brand)' }}>
-                  {currentUser.avatarText}
+                  {avatarText}
                 </Avatar>
                 <span className="shell-user-meta">
-                  <span className="name">{currentUser.name}</span>
-                  <span className="role">{currentUser.role}</span>
+                  <span className="name">{displayName}</span>
+                  <span className="role">{displayRole}</span>
                 </span>
               </button>
             </Dropdown>

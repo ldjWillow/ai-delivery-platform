@@ -7,9 +7,9 @@ import {
 } from '@ant-design/icons'
 import { Button, Col, Progress, Row, Space, Typography } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../auth/AuthContext'
 import { LogView, MemberStack, Panel, StatCard, StatusTag } from '../components/ui'
 import {
-  currentUser,
   deliveryEvents,
   environments,
   greeting,
@@ -21,12 +21,14 @@ const { Text } = Typography
 
 export default function OverviewPage() {
   const nav = useNavigate()
+  const { user } = useAuth()
+  const name = user?.name ?? '张三'
   return (
     <div>
       <div className="overview-hero fade-up">
         <div>
           <h1>
-            {greeting()}，{currentUser.name}
+            {greeting()}，{name}
           </h1>
           <p>一眼看懂全局研发交付态势。项目切换已放到顶栏，这里专注 KPI 与风险。</p>
         </div>

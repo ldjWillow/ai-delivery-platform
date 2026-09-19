@@ -133,8 +133,12 @@ export default function EnvironmentPage() {
         <Col xs={24} md={8}>
           <Panel title="依赖健康">
             <Space direction="vertical" style={{ width: '100%' }}>
-              <div>MySQL 8.0.32 <StatusTag text="运行中" tone="ok" /> · 连接 12/100</div>
-              <div>Redis 7.0.11 <StatusTag text="运行中" tone="ok" /> · 内存 1.2/4 GB</div>
+              <div>
+                MySQL 8.0.32 <StatusTag text="运行中" tone="ok" /> · 连接 12/100
+              </div>
+              <div>
+                Redis 7.0.11 <StatusTag text="运行中" tone="ok" /> · 内存 1.2/4 GB
+              </div>
             </Space>
           </Panel>
         </Col>

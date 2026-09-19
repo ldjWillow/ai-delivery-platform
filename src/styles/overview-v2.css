@@ -1,0 +1,334 @@
+/* Overview v2 — mock dashboard; column stacks keep card tops aligned */
+
+.ov2-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ov2-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ov2-stat-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.ov2-spark {
+  display: block;
+}
+
+.ov2-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+  width: 56px;
+}
+
+.ov2-bars span {
+  flex: 1;
+  border-radius: 2px 2px 0 0;
+  min-height: 4px;
+}
+
+.ov2-pipe-extra {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ov2-pipe-desc {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ov2-pipeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.ov2-stage-wrap {
+  display: contents;
+}
+
+.ov2-stage {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  background: #f8fafc;
+  min-width: 0;
+}
+
+.ov2-stage-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.ov2-stage-head strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.ov2-stage-head em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ov2-stage-head span {
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.ov2-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ov2-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  font-size: 12px;
+  color: #334155;
+}
+
+.ov2-arrow {
+  width: 28px;
+  align-self: center;
+  height: 2px;
+  background: linear-gradient(90deg, #93c5fd, #2563eb);
+  position: relative;
+  border-radius: 2px;
+}
+
+.ov2-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #2563eb;
+}
+
+.ov2-mid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.ov2-mid > .panel-card,
+.ov2-bottom > .panel-card {
+  min-width: 0;
+}
+
+.ov2-agent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ov2-agent-metric {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+  background: #fff;
+}
+
+.ov2-agent-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 8px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.ov2-agent-metric.is-danger .ov2-agent-icon {
+  background: #fef2f2;
+  color: #dc2626;
+}
+.ov2-agent-metric.is-ok .ov2-agent-icon {
+  background: #ecfdf5;
+  color: #16a34a;
+}
+.ov2-agent-metric.is-info .ov2-agent-icon {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.ov2-agent-metric strong {
+  display: block;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.ov2-agent-metric em {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ov2-agent-summary {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.ov2-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.ov2-env-desc {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ov2-envs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ov2-env-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ov2-env-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.ov2-env-top strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.ov2-env-ver {
+  font-size: 13px;
+  font-weight: 650;
+  color: #2563eb;
+}
+
+.ov2-env-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.ov2-env-time {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ov2-env-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ov2-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ov2-events li {
+  display: grid;
+  grid-template-columns: 72px 22px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ov2-events li:last-child {
+  border-bottom: 0;
+}
+
+.ov2-event-time {
+  font-size: 12px;
+  color: #94a3b8;
+  font-variant-numeric: tabular-nums;
+}
+
+.ov2-event-level {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.ov2-events .is-success .ov2-event-level {
+  color: #16a34a;
+}
+.ov2-events .is-info .ov2-event-level {
+  color: #2563eb;
+}
+.ov2-events .is-warn .ov2-event-level {
+  color: #d97706;
+}
+
+.ov2-events strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.ov2-events em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
