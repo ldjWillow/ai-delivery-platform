@@ -1,0 +1,269 @@
+/* Version management v2 — left list + right stack; bottom equal cards */
+
+.ver2-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ver2-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px 0;
+}
+
+.ver2-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 2px;
+  min-width: 0;
+}
+
+.ver2-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 10px 12px 12px;
+  font-size: 13px;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.ver2-tab.is-active {
+  color: #2563eb;
+  font-weight: 650;
+  border-bottom-color: #2563eb;
+}
+
+.ver2-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ver2-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.ver2-body > .panel-card,
+.ver2-right > .panel-card,
+.ver2-bottom > .panel-card {
+  min-width: 0;
+}
+
+.ver2-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.ver2-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ver2-commit {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.ver2-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.ver2-diff {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ver2-diff-pick {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.ver2-diff-pick > span {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.ver2-diff-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ver2-diff-stats > div {
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.ver2-diff-stats strong {
+  display: block;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.ver2-diff-stats em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.ver2-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ver2-history li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.ver2-history strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.ver2-history em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ver2-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.ver2-bottom > .panel-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ver2-bottom > .panel-card > .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.ver2-artifacts,
+.ver2-branches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ver2-artifacts li,
+.ver2-branches li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ver2-artifacts li:last-child,
+.ver2-branches li:last-child {
+  border-bottom: 0;
+}
+
+.ver2-artifacts strong,
+.ver2-branches strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.ver2-artifacts em,
+.ver2-branches em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ver2-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ver2-tag-chip {
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #334155;
+}
+
+.ver2-tag-chip em {
+  font-style: normal;
+  color: #2563eb;
+  font-weight: 650;
+}
+
+.ver2-placeholder {
+  padding: 48px 16px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+}

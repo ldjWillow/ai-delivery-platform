@@ -71,6 +71,12 @@ export const pageMeta: Record<
     quote: '版本是交付链路的关键关联对象',
     search: '搜索版本、Tag、制品...',
   },
+  '/versions-v2': {
+    title: '版本管理2',
+    subtitle: '概览、对比、制品与分支关系一屏掌控',
+    quote: '版本是交付链路的关键关联对象',
+    search: '搜索版本、Tag、制品、分支...',
+  },
   '/logs': {
     title: '日志中心',
     subtitle: '按项目 / 环境 / 服务检索日志，并关联版本、部署与告警',
@@ -95,11 +101,23 @@ export const pageMeta: Record<
     quote: '先止血，再归因，再复盘',
     search: '搜索告警、规则、服务...',
   },
+  '/monitor': {
+    title: '监控中心',
+    subtitle: '可用性、延迟、资源与拓扑一屏观测，支撑值班定位',
+    quote: '看得见，才管得住',
+    search: '搜索服务、实例、API...',
+  },
   '/customers': {
     title: '客户中心',
     subtitle: '客户、验收、沟通与回款一屏掌控',
     quote: '交付价值，最终要落到客户成功',
     search: '搜索客户、合同、验收...',
+  },
+  '/acceptance': {
+    title: '验收中心',
+    subtitle: '待验清单、详情与反馈闭环，推动交付可签字',
+    quote: '验收通过，才算真正交付',
+    search: '搜索验收项目、客户、负责人...',
   },
   '/settings': {
     title: '系统设置',

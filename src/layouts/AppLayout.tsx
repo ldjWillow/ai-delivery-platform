@@ -8,9 +8,11 @@ import {
   ContactsOutlined,
   DashboardOutlined,
   DeploymentUnitOutlined,
+  FileProtectOutlined,
   FileSearchOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  MonitorOutlined,
   QuestionCircleOutlined,
   RobotOutlined,
   SearchOutlined,
@@ -82,7 +84,17 @@ export default function AppLayout() {
         item('/', <DashboardOutlined />, '项目总览'),
         item('/overview-v2', <DashboardOutlined />, '项目总览2'),
       ]),
-      group('客户', [item('/customers', <ContactsOutlined />, '客户中心')]),
+      group('客户', [
+        item('/customers', <ContactsOutlined />, '客户中心'),
+        item(
+          '/acceptance',
+          <FileProtectOutlined />,
+          <span className="menu-label-with-badge">
+            验收中心
+            <Badge count={8} size="small" />
+          </span>,
+        ),
+      ]),
       group('交付', [
         item('/pipelines', <ApartmentOutlined />, '流水线'),
         item('/agent', <RobotOutlined />, 'AI Agent'),
@@ -93,6 +105,7 @@ export default function AppLayout() {
         item('/environments', <CloudServerOutlined />, '环境管理'),
         item('/environments-v2', <CloudServerOutlined />, '环境管理2'),
         item('/versions', <TagsOutlined />, '版本管理'),
+        item('/versions-v2', <TagsOutlined />, '版本管理2'),
       ]),
       group('运行', [
         item('/logs', <FileSearchOutlined />, '日志中心'),
@@ -113,6 +126,7 @@ export default function AppLayout() {
             <Badge count={1} size="small" />
           </span>,
         ),
+        item('/monitor', <MonitorOutlined />, '监控中心'),
       ]),
     ],
     [],
